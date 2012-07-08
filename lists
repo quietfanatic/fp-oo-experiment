@@ -1,0 +1,32 @@
+
+
+
+
+cons_int = h:int -> t:List_int -> {
+	head = h;
+	tail = t;
+	null = 0;
+};
+
+empty_int = {
+	head = 0;
+	tail = 0;
+	null = 1;
+};
+
+List_int = {
+	head : int;
+	tail : List_int;
+	null : int;
+};
+
+
+List = T:Type -> {
+	head : T;
+	tail : List T;
+	null : int;
+};
+
+main = (cons_int 4 (cons_int 0 empty_int)).head
+
+

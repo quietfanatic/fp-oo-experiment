@@ -1,0 +1,33 @@
+
+This was an experiment in the process of designing a larger language.
+
+
+You can build objects:
+	my_object = {
+		a = 1;
+		b = 2;
+	}
+define interfaces:
+	vecish = {
+		x : int;
+		y : int;
+	}
+and write functions:
+	add5 = x : int -> add x 5
+Functions can be nested and can take types as parameters.
+
+You can apply functions concatenatively and acces object members with '.':
+	eight = add 5 { x = 4; y = 3}.y
+
+
+The builtin things are:
+
+add : int -> int -> int
+sub : int -> int -> int
+mul : int -> int -> int
+int : Type
+Func : Type -> Type -> Type
+Type : Type
+Thing : Type (Thing is a superset of all other types)
+
+

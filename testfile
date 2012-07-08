@@ -1,0 +1,90 @@
+
+
+
+
+Vec = {
+	x : int;
+	y : int;
+};
+
+vec = x_:int -> y_:int -> {
+	x = x_;
+	y = y_;
+};
+
+dot = a:Vec -> b:Vec ->
+	add (mul a.x b.x) (mul a.y b.y);
+
+
+List = T:Type -> {
+	head : T;
+	tail : List T;
+	null : int;
+};
+
+empty = T:Type -> {
+	head = 0;
+	tail = 0;
+	null = 1;
+};
+
+cons = T:Type -> h:T -> t : List T -> {
+	head = h;
+	tail = t;
+	null = 0;
+};
+
+map = F:Type -> T:Type ->
+	func : Func F T -> list : List F ->
+	(? list.null
+		?? cons T (func list.head) (map F T func list.tail)
+		!! empty T);
+
+sum = list : List int ->
+	(? list.null
+		?? 0
+		!! add list.head (sum list.tail));
+
+start = (
+	cons Vec (vec 1 2) (
+	cons Vec (vec 3 4) (
+	cons Vec (vec 5 6) (
+	empty Vec
+))));
+
+end = map Vec int (dot (vec 7 8)) start;
+
+istart = (
+	cons int 0 (
+	cons int 1 (
+	cons int 2 (
+	empty int
+))));
+
+
+notnull = list : List int ->
+	(? list.null
+		?? 0
+		!! 1);
+
+length = T:Type -> list : List T ->
+	(? list.null
+		?? 0
+		!! add 1 (length T list.tail));
+
+not = i:int ->
+	? i
+		?? 0
+		!! 1;
+
+even = i:int ->
+	? i
+		?? not (even (sub i 1))
+		!! 1;
+
+main = cons int 0 (empty int);
+
+
+
+
+
