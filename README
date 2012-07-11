@@ -1,5 +1,6 @@
 
 This was an experiment in the process of designing a larger language.
+NOTE: At some point I busted something in the scoping and haven't bothered to fix it.
 
 
 You can build objects:
